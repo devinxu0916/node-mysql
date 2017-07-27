@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <form action="/users/search" method="post" class="form-horizontal">
+            <div class="form-group">
+                <label for="name" class="col-sm-2 control-label">姓名</label>
+                <div class="col-sm-10">
+                    <input type="text" name="s_name" value="<%= s_name %>" id="name" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="age" class="col-sm-2 control-label">年龄</label>
+                <div class="col-sm-10">
+                    <input type="text" name="s_age" value="<%= s_age %>" id="age" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <input type="submit" class="btn btn-default" value="查询">
+                </div>
+            </div>
+        </form>
+        <div class="col-sm-offset-2 col-sm-10">
+            <table class="table">
+                <tr>
+                    <th>编号</th>
+                    <th>姓名</th>
+                    <th>年龄</th>
+                    <th>操作</th>
+                </tr>
+                <% for(var i = 0; i < data.length; i++) {%>
+
+                <tr>
+                    <td><%= data[i].id %></td>
+                    <td><%= data[i].name %></td>
+                    <td><%= data[i].age %></td>
+                    <td>
+                        <a href="/users/add" class="btn btn-primary">添加用户</a>
+                        <a href="/users/del/<%= data[i].id %>" class="btn btn-danger">删除</a>
+                        <a href="/users/toUpdate/<%= data[i].id %>" class="btn btn-default">修改</a>
+                    </td>
+                </tr>
+
+                <% } %>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
