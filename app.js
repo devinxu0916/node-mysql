@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+const news = require('./routes/news');
 /*const photos = require('./routes/photos');
 const upload = require('./routes/upload');*/
 
@@ -27,6 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/news', news);
 /*app.use('/photo', photos);
 app.use('/upload', upload);*/
 

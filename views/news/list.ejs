@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>新闻分类</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+</head>
+<body>
+    <ul>
+        <% for (var i = 0; i < data.length; i++){ %>
+
+        <li>
+            <a href="">
+                <span><%= data[i].id %></span>
+                <span><%= data[i].cid %></span>
+                <span><%= data[i].title %></span>
+            </a>
+        </li>
+
+        <% } %>
+    </ul>
+</body>
+</html>
