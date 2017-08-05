@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
-const news = require('./routes/news');
+var news = require('./routes/news');
 /*const photos = require('./routes/photos');
 const upload = require('./routes/upload');*/
 
