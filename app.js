@@ -9,7 +9,7 @@ const MongoStore = require('connect-mongo')(session);
 
 var index = require('./routes/index');
 var users = require('./routes/users');
-const news = require('./routes/news');
+var news = require('./routes/news');
 /*const photos = require('./routes/photos');
 const upload = require('./routes/upload');*/
 const mongo = require('./routes/mongo');
