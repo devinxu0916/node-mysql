@@ -4,18 +4,20 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
 
 var index = require('./routes/index');
 var users = require('./routes/users');
 const news = require('./routes/news');
 /*const photos = require('./routes/photos');
 const upload = require('./routes/upload');*/
+const mongo = require('./routes/mongo');
 
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('photos', path.join(__dirname, 'public/photos'));
 app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
@@ -31,6 +33,14 @@ app.use('/users', users);
 app.use('/news', news);
 /*app.use('/photo', photos);
 app.use('/upload', upload);*/
+app.use('/mongo', mongo);
+
+app.use(session({
+    secret: 'sKey',
+    store: new MongoStore({
+        url: 'mongodb://localhost/test'
+    })
+}));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
