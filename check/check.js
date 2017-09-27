@@ -6,7 +6,7 @@ let find = function (name) {
         if (data) {
             flag = true
         }
-        return flag;
+        return flag
     })
 };
 
